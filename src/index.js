@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Post from './components/Post';
+import SinglePost from './pages/SinglePost';
 import Home from './pages/Home';
 
 const posts = [
@@ -28,7 +28,7 @@ ReactDOM.render(
           path='/post/:id'
           render={({ match }) => {
             const post = posts.find(({ id }) => id === +match.params.id);
-            return <Post post={post} />;
+            return <SinglePost post={post} />;
           }}
         />
       </Switch>
