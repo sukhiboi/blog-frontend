@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SinglePost from './pages/SinglePost';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import './styles/blog.css';
 
 const posts = [
@@ -23,11 +24,12 @@ const App = props => {
   const [user, setUser] = useState({ isLoggedIn: false });
 
   useEffect(() => {
-    fetch('/api/user').then(async res => {
-      if (!res.ok) setUser({ isLoggedIn: false });
-      const user = await res.json();
-      return setUser({ ...user, isLoggedIn: true });
-    });
+    fetch('/user')
+      .then(async res => {
+        const { name, avatar_url, bio } = await res.json();
+        return setUser({ name, avatar_url, bio, isLoggedIn: true });
+      })
+      .catch(() => setUser({ isLoggedIn: false }));
   }, []);
 
   return (
@@ -37,11 +39,7 @@ const App = props => {
           exact
           path='/'
           render={props =>
-            user.isLoggedIn ? (
-              <Home posts={posts} />
-            ) : (
-              <a href={process.env.REACT_APP_LOGIN_REDIRECT}>login</a>
-            )
+            user.isLoggedIn ? <Home posts={posts} /> : <Login />
           }
         />
         <Route
