@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SinglePost from './pages/SinglePost';
 import Home from './pages/Home';
@@ -20,35 +20,18 @@ const posts = [
   },
 ];
 
+const getSinglePost = props => {
+  const post = posts.find(({ id }) => id === +props.match.params.id);
+  return <SinglePost post={post} />;
+};
+
 const App = props => {
-  const [user, setUser] = useState({ isLoggedIn: false });
-
-  useEffect(() => {
-    fetch('/user')
-      .then(async res => {
-        const { name, avatar_url, bio } = await res.json();
-        return setUser({ name, avatar_url, bio, isLoggedIn: true });
-      })
-      .catch(() => setUser({ isLoggedIn: false }));
-  }, []);
-
   return (
     <BrowserRouter>
       <Switch>
-        <Route
-          exact
-          path='/'
-          render={props =>
-            user.isLoggedIn ? <Home posts={posts} /> : <Login />
-          }
-        />
-        <Route
-          path='/post/:id'
-          render={({ match }) => {
-            const post = posts.find(({ id }) => id === +match.params.id);
-            return <SinglePost post={post} />;
-          }}
-        />
+        <Route exact path='/login' children={<Login />} />
+        <Route exact path='/' children={<Home posts={posts} />} />
+        <Route path='/post/:id' render={getSinglePost} />
       </Switch>
     </BrowserRouter>
   );
