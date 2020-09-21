@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentBox from './ContentBox';
 
 const Post = props => {
   const { title, publishedDate, content } = props.post;
@@ -6,7 +7,7 @@ const Post = props => {
     <div>
       <h1>{title}</h1>
       <span>{publishedDate}</span>
-      <p>{content}</p>
+      <ContentBox value={content} disabled={true} onChange={() => {}} />
       <hr />
     </div>
   );
