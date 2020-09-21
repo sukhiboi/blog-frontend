@@ -4,8 +4,8 @@ import Post from './../components/Post';
 
 const Home = props => {
   const posts = props.posts.map(post => (
-    <Link to={`/post/${post.id}`} key={post.id}>
-      <Post post={post} />
+    <Link className='link' to={`/post/${post.id}`} key={post.id}>
+      <Post className='post' post={post} />
     </Link>
   ));
   return <div>{posts}</div>;

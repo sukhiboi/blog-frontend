@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SinglePost from './pages/SinglePost';
 import Home from './pages/Home';
+import './styles/blog.css';
 
 const posts = [
   {

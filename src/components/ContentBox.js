@@ -10,7 +10,12 @@ const ContentBox = props => {
 
   return (
     <div>
-      <textarea {...props} value={value} onChange={updateValue} />
+      <textarea
+        className='post-content'
+        {...props}
+        value={value}
+        onChange={updateValue}
+      />
     </div>
   );
 };

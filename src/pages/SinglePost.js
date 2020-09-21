@@ -1,14 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { BiArrowBack } from 'react-icons/bi';
 import Post from './../components/Post';
 
 const SinglePost = props => {
   const history = useHistory();
   return (
     <div>
-      <button onClick={history.goBack}>Go Back</button>
+      <BiArrowBack className='icon' onClick={history.goBack} />
       <div>
-        <Post post={props.post} />
+        <Post className='post static-post' post={props.post} />
       </div>
     </div>
   );
