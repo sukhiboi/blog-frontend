@@ -11,8 +11,8 @@ const Home = props => {
       <Post className='post' post={post} />
     </Link>
   ));
-  
-  if (!user.name) return <p>Loading...</p>;
+
+  if (!user.isLoggedIn) return <p>Loading...</p>;
   return (
     <div>
       Logged In user {`${user.name}`}

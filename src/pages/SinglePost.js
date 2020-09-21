@@ -8,7 +8,7 @@ const SinglePost = props => {
   const user = useUser();
   const history = useHistory();
 
-  if (!user.name) return <p>Loading...</p>;
+  if (!user.isLoggedIn) return <p>Loading...</p>;
   return (
     <div>
       Logged In user {`${user.name}`}
