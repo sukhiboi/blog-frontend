@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 const Header = props => {
-  const logout = () => {
-    console.log('logout');
-  };
-
+  console.log(process.env)
   return (
     <div className='header'>
       <div className='vertical-center'>
@@ -17,7 +14,9 @@ const Header = props => {
       <div className='user-actions'>
         <div className='vertical-center'>{props.username}</div>
         <div className='vertical-center'>
-          <Button onClick={logout} text='Logout' />
+          <a className='link' href={process.env.REACT_APP_LOGOUT_REDIRECT}>
+            <Button text='Logout' />
+          </a>
         </div>
       </div>
     </div>
