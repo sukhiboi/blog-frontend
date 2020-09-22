@@ -1,12 +1,10 @@
-import React from 'react';
-import { useUser } from './../hooks/useUser';
+import React, { useContext } from 'react';
+import { UserContext } from './../App';
 import Header from './../components/Header';
 import Post from './../components/Post';
 
 const SinglePost = props => {
-  const user = useUser();
-
-  if (!user.isLoggedIn) return <p>Loading...</p>;
+  const { user } = useContext(UserContext);
   return (
     <div>
       <Header username={user.name} />

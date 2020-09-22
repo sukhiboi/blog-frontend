@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { useUser } from './hooks/useUser';
 import SinglePost from './pages/SinglePost';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -25,15 +26,18 @@ const getSinglePost = props => {
   return <SinglePost post={post} />;
 };
 
+export const UserContext = React.createContext();
+
 const App = props => {
+  const user = useUser();
   return (
-    <BrowserRouter>
+    <UserContext.Provider value={{ user }}>
       <Switch>
         <Route exact path='/login' children={<Login />} />
         <Route exact path='/' children={<Home posts={posts} />} />
         <Route path='/post/:id' render={getSinglePost} />
       </Switch>
-    </BrowserRouter>
+    </UserContext.Provider>
   );
 };
 
