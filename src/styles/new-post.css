@@ -5,6 +5,12 @@
   margin: 1rem auto;
 }
 
+@media screen and (max-width: 425px) {
+  .new-post {
+    width: 95%;
+  }
+}
+
 .input {
   font-family: sans-serif;
   border: 1px solid #ccc;
@@ -27,5 +33,5 @@
 .content {
   font-size: 1.2rem;
   line-height: 1.4;
-  height: 65vh;
+  height: 60vh;
 }

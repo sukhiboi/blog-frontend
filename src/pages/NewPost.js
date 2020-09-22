@@ -12,7 +12,7 @@ const NewPost = props => {
   const history = useHistory();
 
   const publish = () => {
-    fetch('/post/add-new-post', {
+    fetch('/api/post/add-new-post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ const PrivateRoute = ({ component: Component, ...routeProps }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch('/user')
+    fetch('/api/user')
       .then(res => res.json())
       .then(setUser)
       .then(() => setIsLoaded(true))

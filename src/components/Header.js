@@ -14,7 +14,7 @@ const Header = props => {
         <div className='vertical-center'>{props.username}</div>
         <div className='vertical-center'>
           <Link className='link' to='/new-post'>
-            <Button text='New Post' />
+            <Button text='New' />
           </Link>
         </div>
         <div className='vertical-center'>

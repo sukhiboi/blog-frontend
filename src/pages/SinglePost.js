@@ -9,7 +9,7 @@ const SinglePost = props => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`/post/${id}`)
+    fetch(`/api/post/${id}`)
       .then(res => res.json())
       .then(post => setPost({ ...post, isLoaded: true }));
   }, [id]);

@@ -6,7 +6,7 @@ const Home = props => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('/post/all')
+    fetch('/api/post/all')
       .then(res => res.json())
       .then(setPosts);
   }, []);

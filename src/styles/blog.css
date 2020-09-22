@@ -71,6 +71,12 @@ body {
   margin: 10px auto;
 }
 
+@media screen and (max-width: 425px) {
+  .post {
+    width: 85%;
+  }
+}
+
 .post:hover {
   cursor: pointer;
   border: 1px solid #000;
