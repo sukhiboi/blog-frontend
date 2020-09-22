@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InputBar = ({ value, onChange, ...rest }) => {
+const TextBox = ({ value, onChange, ...rest }) => {
   const [input, setInput] = useState(value || '');
 
   return (
@@ -15,4 +15,4 @@ const InputBar = ({ value, onChange, ...rest }) => {
   );
 };
 
-export default InputBar;
+export default TextBox;

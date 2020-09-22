@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentBox from './ContentBox';
+import TextBox from './TextBox';
 
 const formatDate = date => {
   const dateFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
@@ -12,7 +12,13 @@ const Post = props => {
     <div className={props.className}>
       <span className='post-title'>{title}</span>
       <span className='post-publish-date'>{formatDate(publishedDate)}</span>
-      <ContentBox value={content} disabled={true} onChange={() => {}} />
+      <TextBox
+        className='post-content'
+        rows='1'
+        value={content}
+        disabled={true}
+        onChange={() => {}}
+      />
     </div>
   );
 };
