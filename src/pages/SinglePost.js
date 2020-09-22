@@ -1,22 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useUser } from './../hooks/useUser';
-import { BiArrowBack } from 'react-icons/bi';
+import Header from './../components/Header';
 import Post from './../components/Post';
 
 const SinglePost = props => {
   const user = useUser();
-  const history = useHistory();
 
   if (!user.isLoggedIn) return <p>Loading...</p>;
   return (
     <div>
-      Logged In user {`${user.name}`}
+      <Header username={user.name} />
       <div>
-        <BiArrowBack className='icon' onClick={history.goBack} />
-        <div>
-          <Post className='post static-post' post={props.post} />
-        </div>
+        <Post className='post static-post' post={props.post} />
       </div>
     </div>
   );

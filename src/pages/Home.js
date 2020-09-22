@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from './../hooks/useUser';
+import Header from './../components/Header';
 import Post from './../components/Post';
 
 const Home = props => {
@@ -15,7 +16,7 @@ const Home = props => {
   if (!user.isLoggedIn) return <p>Loading...</p>;
   return (
     <div>
-      Logged In user {`${user.name}`}
+      <Header username={user.name} />
       <div>{posts}</div>
     </div>
   );
