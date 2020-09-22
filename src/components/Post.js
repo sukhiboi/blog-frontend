@@ -7,11 +7,13 @@ const formatDate = date => {
 };
 
 const Post = props => {
-  const { title, publishedDate, content } = props.post;
+  const { title, publishedDate, content, name } = props.post;
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>
-      <span className='post-publish-date'>{formatDate(publishedDate)}</span>
+      <span className='post-publish-date'>
+        Published on {formatDate(publishedDate)} by {name}
+      </span>
       <TextBox
         className='post-content'
         rows='1'
