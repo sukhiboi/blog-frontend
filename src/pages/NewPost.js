@@ -28,16 +28,15 @@ const NewPost = props => {
     <div>
       <div className='new-post'>
         <TextBox
-          className='input title'
+          className='title'
           placeholder='Title'
           rows='1'
           wrap='off'
           onChange={setTitle}
         />
         <TextBox
-          className='input content'
+          className='content'
           placeholder='Content'
-          rows='15'
           onChange={setContent}
         />
         <Button text='Publish' onClick={publishPost} />

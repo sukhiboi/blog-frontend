@@ -6,7 +6,7 @@ import Header from './Header';
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [user, loaded] = useUser();
 
-  if (!loaded) return <p>Loading</p>;
+  if (!loaded) return <p>Loading...</p>;
   return (
     <Route
       {...rest}
@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         user.isLoggedIn ? (
           <div>
             <Header {...props} user={user} />
-            <Component user={user}   />
+            <Component {...props} user={user} />
           </div>
         ) : (
           <Redirect to='/login' />

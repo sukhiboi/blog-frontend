@@ -5,6 +5,7 @@ const TextBox = ({ value, onChange, ...rest }) => {
 
   return (
     <textarea
+      className={`input ${rest.className}`}
       value={input}
       onChange={({ target }) => {
         setInput(target.value);
