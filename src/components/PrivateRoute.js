@@ -1,17 +1,20 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { UserContext } from './../App';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
   const { user, setUser } = useContext(UserContext);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetch('/user')
       .then(res => res.json())
-      .then(setUser);
+      .then(setUser)
+      .then(() => setIsLoaded(true))
+      .catch(() => setIsLoaded(true));
   }, []);
 
-  if (!user.isLoaded) return <p>Loading...</p>;
+  if (!isLoaded) return <p>Loading...</p>;
   return (
     <Route
       {...routeProps}
