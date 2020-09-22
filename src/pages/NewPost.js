@@ -29,6 +29,7 @@ const NewPost = props => {
           className='input title'
           placeholder='Title'
           rows='1'
+          wrap='off'
           onChange={setTitle}
         />
         <TextBox
