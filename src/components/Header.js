@@ -13,6 +13,11 @@ const Header = props => {
       <div className='user-actions'>
         <div className='vertical-center'>{props.username}</div>
         <div className='vertical-center'>
+          <Link className='link' to='/new-post'>
+            <Button text='New Post' />
+          </Link>
+        </div>
+        <div className='vertical-center'>
           <a className='link' href={process.env.REACT_APP_LOGOUT_REDIRECT}>
             <Button text='Logout' />
           </a>
