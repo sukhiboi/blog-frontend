@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import Header from './../components/Header';
+import { Redirect } from 'react-router-dom';
 import PostList from './../components/PostList';
 
 const Home = props => {
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch('/api/post/all')
       .then(res => res.json())
-      .then(setPosts);
+      .then(posts => setPosts(posts))
+      .catch(() => setError(true));
   }, []);
 
-  return (
-    <div>
-      <Header username={props.user.name} />
-      <PostList posts={posts} />
-    </div>
-  );
+  if (error) return <Redirect to='/login' />;
+  return <PostList posts={posts} />;
 };
 
 export default Home;

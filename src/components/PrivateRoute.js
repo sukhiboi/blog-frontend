@@ -1,25 +1,24 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { UserContext } from './../App';
+import { useUser } from './../hooks/useUser';
+import Header from './Header';
 
-const PrivateRoute = ({ component: Component, ...routeProps }) => {
-  const { user, setUser } = useContext(UserContext);
-  const [isLoaded, setIsLoaded] = useState(false);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const [user, loaded] = useUser();
 
-  useEffect(() => {
-    fetch('/api/user')
-      .then(res => res.json())
-      .then(setUser)
-      .then(() => setIsLoaded(true))
-      .catch(() => setIsLoaded(true));
-  }, []);
-
-  if (!isLoaded) return <p>Loading...</p>;
+  if (!loaded) return <p>Loading</p>;
   return (
     <Route
-      {...routeProps}
-      render={() =>
-        user.isLoggedIn ? <Component user={user} /> : <Redirect to='/login' />
+      {...rest}
+      render={props =>
+        user.isLoggedIn ? (
+          <div>
+            <Header {...props} user={user} />
+            <Component user={user}   />
+          </div>
+        ) : (
+          <Redirect to='/login' />
+        )
       }
     />
   );
