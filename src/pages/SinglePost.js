@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import Post from './../components/Post';
+import Loader from './../components/Loader';
 
 const SinglePost = props => {
   const [post, setPost] = useState({ isLoaded: false });
@@ -16,7 +17,7 @@ const SinglePost = props => {
   }, [id]);
 
   if (error) return <Redirect to='/login' />;
-  if (!post.isLoaded) return <p>Loading...</p>;
+  if (!post.isLoaded) return <Loader />;
   return <Post className='static-post' post={post} />;
 };
 
