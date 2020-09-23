@@ -1,42 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
+import { usePost } from '../hooks/usePost';
 import { BiTrash } from 'react-icons/bi';
 import Post from './../components/Post';
-import WithHeader from './../components/WithHeader';
-import Loader from './../components/Loader';
-import { postReq } from './../request';
 import Confirm from '../components/Confirm';
-
-const useConfirm = () => {
-  const [isShown, setIsShown] = useState(false);
-  const toggleConfirm = () => setIsShown(isShown => !isShown);
-  return [isShown, toggleConfirm];
-};
+import Loader from './../components/Loader';
+import WithHeader from './../components/WithHeader';
+import { postReq } from './../request';
 
 const SinglePost = props => {
-  const [post, setPost] = useState({ isLoaded: false });
-  const [error, setError] = useState(false);
-  const [isShown, toggleConfirm] = useConfirm();
-
-  const { id } = useParams();
+  const [post, error] = usePost();
+  const [isShown, setIsShown] = useState(false);
+  const toggleConfirm = () => setIsShown(isShown => !isShown);
 
   const history = useHistory();
   const deletePost = () => {
+    const id = post.id;
     postReq('/api/post/delete-post', { id }).then(() => history.push('/'));
   };
-
-  useEffect(() => {
-    fetch(`/api/post/${id}`)
-      .then(res => res.json())
-      .then(post => setPost({ ...post, isLoaded: true }))
-      .catch(() => setError(true));
-  }, [id]);
 
   if (error) return <Redirect to='/login' />;
   if (!post.isLoaded) return <Loader />;
 
   const deleteButton = (
-    <BiTrash className='post-action-icon btn' onClick={toggleConfirm} size='1.2rem' />
+    <BiTrash
+      className='post-action-icon btn'
+      onClick={toggleConfirm}
+      size='1.2rem'
+    />
   );
   const confirmBox = (
     <Confirm
