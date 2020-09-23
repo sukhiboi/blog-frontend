@@ -68,12 +68,6 @@ body {
   margin: 10px auto;
 }
 
-@media screen and (max-width: 425px) {
-  .post-link {
-    width: 96%;
-  }
-}
-
 .post {
   width: 100%;
   border: 1px solid #ccc;
@@ -145,7 +139,26 @@ body {
 
 .post-action-icon {
   position: absolute;
-  right: 1rem;
+  right: 0;
   top: 1rem;
-  font-size: 1rem;
+  padding: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .post-link {
+    width: 90%;
+  }
+
+  .static-post {
+    width: 90%;
+  }
+
+  .post-action-icon {
+    top: 0;
+  }
+
+  .single-post {
+    padding: 0;
+    padding-top: 1rem;
+  }
 }

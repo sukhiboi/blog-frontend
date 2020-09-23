@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
+import { BiTrash } from 'react-icons/bi';
 import Post from './../components/Post';
 import WithHeader from './../components/WithHeader';
 import Loader from './../components/Loader';
-import Button from './../components/Button';
 import { postReq } from './../request';
 import Confirm from '../components/Confirm';
 
@@ -36,11 +36,7 @@ const SinglePost = props => {
   if (!post.isLoaded) return <Loader />;
 
   const deleteButton = (
-    <Button
-      className='post-action-icon icon'
-      text='Delete Post'
-      onClick={toggleConfirm}
-    />
+    <BiTrash className='post-action-icon btn' onClick={toggleConfirm} size='1.2rem' />
   );
   const confirmBox = (
     <Confirm
