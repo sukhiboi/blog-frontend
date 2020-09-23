@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Button from './../components/Button';
 import TextBox from './../components/TextBox';
+import WithHeader from './../components/WithHeader';
 import './../styles/new-post.css';
 
 const NewPost = props => {
@@ -45,4 +46,4 @@ const NewPost = props => {
   );
 };
 
-export default NewPost;
+export default WithHeader(NewPost);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PostList from './../components/PostList';
+import WithHeader from './../components/WithHeader';
 
 const Home = props => {
   const [posts, setPosts] = useState([]);
@@ -17,4 +18,4 @@ const Home = props => {
   return <PostList posts={posts} />;
 };
 
-export default Home;
+export default WithHeader(Home);

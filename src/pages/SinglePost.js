@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import Post from './../components/Post';
+import WithHeader from './../components/WithHeader';
 import Loader from './../components/Loader';
 
 const SinglePost = props => {
@@ -21,4 +22,4 @@ const SinglePost = props => {
   return <Post className='static-post' post={post} />;
 };
 
-export default SinglePost;
+export default WithHeader(SinglePost);
