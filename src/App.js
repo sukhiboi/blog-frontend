@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Redirect as RD, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { useUser } from './hooks/useUser';
+import { usePostsStore } from './hooks/usePostsStore';
 import Loader from './components/Loader';
 import SinglePost from './pages/SinglePost';
 import NewPost from './pages/NewPost';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import './styles/blog.css';
-import { useUser } from './hooks/useUser';
-import { usePostsStore } from './hooks/usePostsStore';
 
 export const SiteContext = React.createContext();
 
@@ -27,13 +27,13 @@ const App = props => {
       <BrowserRouter>
         <Switch>
           <Route exact path='/'>
-            {user.isLoggedIn ? <Home /> : <RD to='/login' />}
+            {user.isLoggedIn ? <Home /> : <Redirect to='/login' />}
           </Route>
           <Route path='/post/:id'>
-            {user.isLoggedIn ? <SinglePost /> : <RD to='/login' />}
+            {user.isLoggedIn ? <SinglePost /> : <Redirect to='/login' />}
           </Route>
           <Route exact path='/new-post'>
-            {user.isLoggedIn ? <NewPost /> : <RD to='/login' />}
+            {user.isLoggedIn ? <NewPost /> : <Redirect to='/login' />}
           </Route>
           <Route exact path='/login' children={<Login />} />
         </Switch>
