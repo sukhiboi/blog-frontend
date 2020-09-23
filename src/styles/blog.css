@@ -63,9 +63,15 @@ body {
 }
 
 .post-link {
-  display: block;
+  display: flex;
   width: 70%;
   margin: 10px auto;
+}
+
+@media screen and (max-width: 425px) {
+  .post-link {
+    width: 96%;
+  }
 }
 
 .post {
@@ -73,12 +79,6 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 1rem;
-}
-
-@media screen and (max-width: 425px) {
-  .post {
-    width: 85%;
-  }
 }
 
 .post:hover {
