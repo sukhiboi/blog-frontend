@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Button from './../components/Button';
 import TextBox from './../components/TextBox';
 import WithHeader from './../components/WithHeader';
+import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
 import './../styles/new-post.css';
 
@@ -41,4 +42,4 @@ const NewPost = props => {
   );
 };
 
-export default WithHeader(NewPost);
+export default WithAuth(WithHeader(NewPost));

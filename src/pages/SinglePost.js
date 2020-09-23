@@ -6,6 +6,7 @@ import Post from './../components/Post';
 import Confirm from '../components/Confirm';
 import Loader from './../components/Loader';
 import WithHeader from './../components/WithHeader';
+import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
 
 const SinglePost = props => {
@@ -47,4 +48,4 @@ const SinglePost = props => {
   );
 };
 
-export default WithHeader(SinglePost);
+export default WithAuth(WithHeader(SinglePost));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useUser } from './hooks/useUser';
 import { usePostsStore } from './hooks/usePostsStore';
 import Loader from './components/Loader';
@@ -26,16 +26,11 @@ const App = props => {
     <SiteContext.Provider value={contextValue}>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/'>
-            {user.isLoggedIn ? <Home /> : <Redirect to='/login' />}
-          </Route>
-          <Route path='/post/:id'>
-            {user.isLoggedIn ? <SinglePost /> : <Redirect to='/login' />}
-          </Route>
-          <Route exact path='/new-post'>
-            {user.isLoggedIn ? <NewPost /> : <Redirect to='/login' />}
-          </Route>
+          <Route exact path='/' children={<Home user={user} />} />
+          <Route path='/post/:id' children={<SinglePost user={user} />} />
+          <Route exact path='/new-post' children={<NewPost user={user} />} />
           <Route exact path='/login' children={<Login />} />
+          <Route children={<p>404</p>} />
         </Switch>
       </BrowserRouter>
     </SiteContext.Provider>

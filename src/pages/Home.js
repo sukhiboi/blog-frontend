@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { SiteContext } from './../App';
 import PostList from './../components/PostList';
 import WithHeader from './../components/WithHeader';
+import WithAuth from './../components/WithAuth';
 
 const Home = props => {
   const { postsStore } = useContext(SiteContext);
@@ -20,4 +21,4 @@ const Home = props => {
   return <PostList posts={posts} />;
 };
 
-export default WithHeader(Home);
+export default WithAuth(WithHeader(Home));
