@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import TextBox from './TextBox';
 
 const formatDate = date => {
@@ -8,12 +9,14 @@ const formatDate = date => {
 
 const Post = props => {
   const { title, publishedDate, content, name } = props.post;
+  const history = useHistory();
 
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>
       <span className='post-publish-date'>
-        Published on {formatDate(publishedDate)} by {name}
+        Published on {formatDate(publishedDate)} by
+        {<span onClick={() => history.push(`/profile/${name}`)}> {name}</span>}
       </span>
       <TextBox
         className='post-content'

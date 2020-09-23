@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import SinglePost from './pages/SinglePost';
 import NewPost from './pages/NewPost';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
 import './styles/blog.css';
 
@@ -29,6 +30,7 @@ const App = props => {
           <Route exact path='/' children={<Home user={user} />} />
           <Route path='/post/:id' children={<SinglePost user={user} />} />
           <Route exact path='/new-post' children={<NewPost user={user} />} />
+          <Route path='/profile/:username' children={<Profile user={user} />} />
           <Route exact path='/login' children={<Login />} />
           <Route children={<p>404</p>} />
         </Switch>

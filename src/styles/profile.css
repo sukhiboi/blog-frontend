@@ -1,0 +1,48 @@
+.user-profile {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+}
+
+.avatar:hover {
+  cursor: pointer;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+}
+
+.user-details {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-details > div {
+  padding-bottom: 10px;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.user-bio {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
