@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Redirect as RD, Route, Switch } from 'react-router-dom';
 import Loader from './components/Loader';
 import SinglePost from './pages/SinglePost';
@@ -7,12 +7,13 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import './styles/blog.css';
 import { useUser } from './hooks/useUser';
+import { usePostsStore } from './hooks/usePostsStore';
 
 export const SiteContext = React.createContext();
 
 const App = props => {
+  const [posts, setPosts] = usePostsStore();
   const [user, isLoaded, setUser] = useUser();
-  const [posts, setPosts] = useState([]);
 
   const contextValue = {
     user: { details: user, setUser },
