@@ -11,7 +11,7 @@ const Header = props => {
         </Link>
       </div>
       <div className='user-actions'>
-        <div className='vertical-center'>{props.username}</div>
+        <div className='vertical-center'>{props.user.name}</div>
         <div className='vertical-center'>
           <Link className='link' to='/new-post'>
             <Button text='New' />

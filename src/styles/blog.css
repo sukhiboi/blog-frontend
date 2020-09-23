@@ -62,12 +62,17 @@ body {
   width: fit-content;
 }
 
-.post {
+.post-link {
+  display: block;
   width: 70%;
+  margin: 10px auto;
+}
+
+.post {
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 1rem;
-  margin: 10px auto;
 }
 
 @media screen and (max-width: 425px) {
@@ -83,6 +88,8 @@ body {
 
 .static-post {
   border: none;
+  width: 70%;
+  margin: 10px auto;
 }
 
 .static-post:hover {
@@ -102,7 +109,7 @@ body {
   padding-top: 10px;
 }
 
-.post-content {
+.post .post-content {
   padding-top: 20px;
   width: -webkit-fill-available;
   background: transparent;
