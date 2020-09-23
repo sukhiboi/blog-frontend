@@ -27,13 +27,13 @@ const App = props => {
       <BrowserRouter>
         <Switch>
           <Route exact path='/'>
-            {user.isLoggedIn ? <Home user={user} /> : <RD to='/login' />}
+            {user.isLoggedIn ? <Home /> : <RD to='/login' />}
           </Route>
           <Route path='/post/:id'>
-            {user.isLoggedIn ? <SinglePost user={user} /> : <RD to='/login' />}
+            {user.isLoggedIn ? <SinglePost /> : <RD to='/login' />}
           </Route>
           <Route exact path='/new-post'>
-            {user.isLoggedIn ? <NewPost user={user} /> : <RD to='/login' />}
+            {user.isLoggedIn ? <NewPost /> : <RD to='/login' />}
           </Route>
           <Route exact path='/login' children={<Login />} />
         </Switch>

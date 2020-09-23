@@ -6,7 +6,7 @@ export const usePostsStore = () => {
   useEffect(() => {
     fetch('/api/post/all')
       .then(res => res.json())
-      .then(posts => setPosts(posts));
+      .then(setPosts);
   }, []);
 
   return [posts, setPosts];

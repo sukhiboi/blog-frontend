@@ -12,7 +12,7 @@ const Home = props => {
   useEffect(() => {
     fetch('/api/post/all')
       .then(res => res.json())
-      .then(posts => setPosts(posts))
+      .then(setPosts)
       .catch(() => setError(true));
   }, [setPosts]);
 
