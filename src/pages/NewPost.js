@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Button from './../components/Button';
 import TextBox from './../components/TextBox';
 import WithHeader from './../components/WithHeader';
+import { postReq } from './../request';
 import './../styles/new-post.css';
 
 const NewPost = props => {
@@ -12,13 +13,7 @@ const NewPost = props => {
   const [error, setError] = useState(false);
 
   const publishPost = () => {
-    fetch('/api/post/add-new-post', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title, content }),
-    })
+    postReq('/api/post/add-new-post', { title, content })
       .then(() => setPublished(true))
       .catch(() => setError(true));
   };

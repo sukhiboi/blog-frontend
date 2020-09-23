@@ -8,6 +8,7 @@ const formatDate = date => {
 
 const Post = props => {
   const { title, publishedDate, content, name } = props.post;
+
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>

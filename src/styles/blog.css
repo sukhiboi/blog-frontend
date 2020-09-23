@@ -86,10 +86,20 @@ body {
   border: 1px solid #000;
 }
 
+.single-post {
+  border: none;
+}
+
+.single-post:hover {
+  border: none;
+  cursor: default;
+}
+
 .static-post {
   border: none;
   width: 70%;
   margin: 10px auto;
+  position: relative;
 }
 
 .static-post:hover {
@@ -131,4 +141,11 @@ body {
 
 .icon:hover {
   cursor: pointer;
+}
+
+.post-action-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1rem;
 }
