@@ -11,6 +11,16 @@ const Post = props => {
   const { title, publishedDate, content, name } = props.post;
   const history = useHistory();
 
+  const contentBox = (
+    <TextBox
+      className='post-content'
+      rows='2'
+      value={content}
+      disabled={true}
+      onChange={() => {}}
+    />
+  );
+
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>
@@ -18,13 +28,7 @@ const Post = props => {
         Published on {formatDate(publishedDate)} by
         {<span onClick={() => history.push(`/profile/${name}`)}> {name}</span>}
       </span>
-      <TextBox
-        className='post-content'
-        rows='1'
-        value={content}
-        disabled={true}
-        onChange={() => {}}
-      />
+      {props.static ? <p className='post-content'>{content}</p> : contentBox}
     </div>
   );
 };

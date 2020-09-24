@@ -42,7 +42,7 @@ const SinglePost = props => {
       {isShown ? confirmBox : <></>}
       <div className='static-post'>
         {post.isMyPost ? deleteButton : <></>}
-        <Post className='single-post' post={post} />
+        <Post className='single-post' post={post} static={true} />
       </div>
     </div>
   );
