@@ -12,6 +12,10 @@ body {
   color: #000;
 }
 
+.back-to-home-link {
+  padding-left: 1rem;
+}
+
 .vertical-center {
   display: flex;
   flex-direction: column;

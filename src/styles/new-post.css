@@ -36,3 +36,9 @@
   line-height: 1.4;
   height: 60vh;
 }
+
+.disable-btn {
+  user-select: none;
+  pointer-events: none;
+  color: #cfcfcf;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { usePost } from '../hooks/usePost';
 import { BiTrash } from 'react-icons/bi';
 import Post from './../components/Post';
@@ -43,6 +43,9 @@ const SinglePost = props => {
       <div className='static-post'>
         {post.isMyPost ? deleteButton : <></>}
         <Post className='single-post' post={post} static={true} />
+        <Link className='link back-to-home-link' to='/'>
+          ← Back to Home
+        </Link>
       </div>
     </div>
   );

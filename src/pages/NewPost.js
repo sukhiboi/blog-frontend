@@ -36,7 +36,11 @@ const NewPost = props => {
           placeholder='Content'
           onChange={setContent}
         />
-        <Button text='Publish' onClick={publishPost} />
+        <Button
+          className={title && content ? '' : 'disable-btn'}
+          text='Publish'
+          onClick={publishPost}
+        />
       </div>
     </div>
   );
