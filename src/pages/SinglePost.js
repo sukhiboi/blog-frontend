@@ -8,9 +8,11 @@ import Loader from './../components/Loader';
 import WithHeader from './../components/WithHeader';
 import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
+import { useTitle } from '../hooks/useTitle';
 
 const SinglePost = props => {
   const [post, error] = usePost();
+  useTitle(post.title);
   const [isShown, setIsShown] = useState(false);
   const toggleConfirm = () => setIsShown(isShown => !isShown);
 
