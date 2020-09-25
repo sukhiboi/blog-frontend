@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
+  padding-bottom: 1rem;
 }
 
 .full-height {
@@ -93,6 +94,7 @@ body {
   border: none;
 }
 
+
 .single-post:hover {
   border: none;
   cursor: default;
@@ -103,6 +105,11 @@ body {
   width: 70%;
   margin: 10px auto;
   position: relative;
+}
+
+.static-post .link:hover {
+  text-decoration: underline !important;
+  cursor: pointer;
 }
 
 .static-post:hover {

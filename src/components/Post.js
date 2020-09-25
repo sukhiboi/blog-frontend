@@ -21,12 +21,19 @@ const Post = props => {
     />
   );
 
+  const redirectToProfile = () => history.push(`/profile/${name}`);
+
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>
       <span className='post-publish-date'>
         Published on {formatDate(publishedDate)} by
-        {<span onClick={() => history.push(`/profile/${name}`)}> {name}</span>}
+        {
+          <span className='link' onClick={redirectToProfile}>
+            {' '}
+            {name}
+          </span>
+        }
       </span>
       {props.static ? <p className='post-content'>{content}</p> : contentBox}
     </div>
