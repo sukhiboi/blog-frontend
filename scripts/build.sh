@@ -24,9 +24,11 @@ git clone https://github.com/sukhiboi/blog-backend.git;
 cd blog-backend;
 npm install;
 npm test;
+ls;
 rm -rf node_modules;
 
 #cloning backend to root
+ls;
 cp -R ./* ..;
 ls
 
