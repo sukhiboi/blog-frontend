@@ -1,5 +1,5 @@
 #removing unwanted directories and files
-rm -rf node_modules public src lib test
+rm -rf node_modules public src lib test package.json package-lock.json
 ls
 
 #cloning frontend
