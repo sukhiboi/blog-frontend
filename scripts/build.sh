@@ -1,5 +1,6 @@
 #removing unwanted directories and files
 rm -rf node_modules public src lib test
+ls
 
 #cloning frontend
 git clone https://github.com/sukhiboi/blog-frontend.git;
