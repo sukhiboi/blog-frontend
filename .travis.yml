@@ -3,7 +3,12 @@ node_js: lts/*
 os:
   - osx
   - linux
-install:
-  - npm install
+jobs:
+  - exclude
+    - stage "Test"
+      script: npm test
+  - include
+    - stage "Build"
+      script: npm run build
 script:
   - npm test
