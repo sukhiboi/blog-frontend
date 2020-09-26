@@ -5,7 +5,15 @@ os:
   - linux
 jobs:
   include:
-    - stage: 'Build'
+    - stage: Build
       script: npm run build
 script:
   - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: CVuQFUE6WJOi9ULNhynelFhFpwALQ3ackRNjyyy4kkJK1pT7UaVR21j9Goq4x3sso94Oeo88NPIufgLAH4oIhVB+uptH60paQem2VT2g5r7bx0HHWzXuxqSsoi2mLU/QhQXnC8yYyYAk/BQagsYFnG2nog/b/DhUioavuiHzoSEcztIQB1aCbjhJG1HYNbpNl56bvK5G1fY24cOvisu2MaFto05ZXR791+S0phxp5NVF8MrLxzLSRQkg3uRbfxmI2ZS4roYv99Q3TNYJeb7Clwbz4B+IxFQd4YKxkNcfW9+9kkhAkyZ9xKuZEQlOTq5rt+8aDrGPM6LTA1wl7LiUXfBh/E41S78DkoRgp1gJO8nEf8X5ptTDDszWCIOCJeXMVmMNiBEF8AB1D5VWbW7AalHaEs63hE31VYtX4iHrXS3saa8l0aqkYTeB/Adj8oiYJrILlXqLWLxsTeK4G/tWbzvSR4kL075HVhW/s4RSSjZVyJhWoTmcxLi4NFKCa552MDvlmux9UpqWI8JfLN8bhuAM4OmuN4lRtwFchVd3SHfP3qByL7QyBOl/XxbuzN+jHOsTb666SBPHroRGx7TyUBEv3v86a3rbqJ/sHz8ZSvRT1iFjckeW2bFePRJtNzVznZo653ITc3/acz7lsT+boB5SeeGGqELjQGFgSQ6lMvY=
+  run:
+    - restart
+  app: sukhiboi-blog
+  strategy: git
