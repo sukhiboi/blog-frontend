@@ -1,3 +1,6 @@
+#removing unwanted directories and files
+rm -rf node_modules public src lib test
+
 #cloning frontend
 git clone https://github.com/sukhiboi/blog-frontend.git;
 
@@ -28,5 +31,3 @@ cp -R ./* ..;
 #deleting backend
 cd ..;
 rm -rf blog-backend;
-
-rm -rf node_modules;
