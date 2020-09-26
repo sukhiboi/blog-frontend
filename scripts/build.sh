@@ -1,33 +1,32 @@
-#removing unwanted directories and files
-rm -rf node_modules public src lib test package.json package-lock.json
-
 #cloning frontend
-git clone https://github.com/sukhiboi/blog-frontend.git frontend;
+git clone https://github.com/sukhiboi/blog-frontend.git;
 
 #creating react build
-cd frontend;
+cd blog-frontend;
 npm install;
 npm test;
 npm run build;
-cd ..;
-
-#cloning backend
-git clone https://github.com/sukhiboi/blog-backend.git backend;
-
-cd backend;
-npm install;
-npm test;
 
 #cloning build to root
-mv ./../frontent/build ./build;
-rm -rf node_modules;
+mv build ../build;
+
+#deleting frontend
 cd ..;
+rm -rf blog-frontend;
+
+#cloning backend
+git clone https://github.com/sukhiboi/blog-backend.git;
+
+cd blog-backend;
+npm install;
+npm test;
+rm -rf node_modules;
 
 #cloning backend to root
-cp -R ./backend/* .;
+cp -R ./* ..;
 
 #deleting backend
-rm -rf backend;
-rm -rf frontend;
+cd ..;
+rm -rf blog-backend;
 
-echo 'here\n' && ls
+rm -rf node_modules;
