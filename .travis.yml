@@ -4,6 +4,8 @@ os:
 - linux
 env:
 - NODE_ENV=test
+install: 
+- rm -rf public src package.json package-lock.json && ls
 services:
 - redis-server
 jobs:
