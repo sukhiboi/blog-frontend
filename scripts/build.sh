@@ -1,6 +1,8 @@
 #removing unwanted directories and files
 rm -rf node_modules public src lib test package.json package-lock.json
 
+pwd
+
 #cloning frontend
 git clone https://github.com/sukhiboi/blog-frontend.git;
 
@@ -14,7 +16,9 @@ npm run build;
 mv build ../build;
 
 #deleting frontend
+pwd
 cd ..;
+pwd
 rm -rf blog-frontend;
 ls
 
