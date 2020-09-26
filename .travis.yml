@@ -4,10 +4,9 @@ os:
   - osx
   - linux
 jobs:
-  - exclude
+  - include
     - stage "Test"
       script: npm test
-  - include
     - stage "Build"
       script: npm run build
 script:
