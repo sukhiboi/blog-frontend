@@ -1,21 +1,20 @@
 language: node_js
 node_js: lts/*
 os:
-  - linux
+- linux
 env:
-  - NODE_ENV=test
+- NODE_ENV=test
 services:
-  - redis-server
+- redis-server
 install:
-  - npm install
+- npm install
 jobs:
   include:
-    - stage: 'Deploy'
-      script: ./scripts/build.sh
-      deploy:
-        provider: heroku
-        api_key:
-          secure: Q/y6+3Nq5yc8m3yPZm7FBeo9EKSauzccx0u9ky5cTHcdi90vgJKyWb0bn7r+8hgKgcFpvmLfSbE3Jjc95m35Cjn+FutKiyToZCEfRUwIXjEPbEL7Q08P0RMn89XfRx1gP0YHJtkpRjKIr/7l1KvYyzh8Fpyot1UkG42N+9ILBRlOksoexYsrNOo4n1VYkBE6w6D3pQYiSFZsz0EG2y7aizR4m64U3mc9qI+iKZ5yQsXFofEAvDLZodRm83lf5lqQC6C/rx/IuavsR5JZYAXGexGjUzqL4Rv2K8+29OSPOz3/      KIYVcHX4O77MzrphMSngXvsAgJkvQk9sOCY6EXx7lFy2vbvm2Vq4q60a3nLWKxPM7Hs2Hc6EkZTlLZ9ao3BNRCQcMPOVxJJI2HaI95wq5G5pfda20tA0RCBaTdr1vmPpBhk2JPnSfz8ZG+32RsAJtjk2+wUlYgYVXBud8+E+BpPXyNhCuVVeUnEJW2zOEFXX9l+VxDVzz4z/9I85qbfVDBjkAVZ9UNoPEvHQLj2KnY57zV6gEBDGuGUOYT9dDCLDLUmQDoP+yzKQmhIS    +PuKz2u3WpRFhUZtjC1zwYGheBUHJyAqtbdv/ZN9wK9gHLt2P8W6PIL9cRTw3q2nCNkEUn5X83Ez1A1Ol4fp6vMpRaeJBp5l0r5VkGUnH5G1Ct4=
-        app: sukhiboi-blog
-        run: restart
-        skip_cleanup: true
+  - stage: Deploy
+    script: "./scripts/build.sh"
+    deploy:
+      provider: heroku
+      api_key:
+        secure: jdUo2juCWQu3sRtuzCSt1Rnr/Fq49xwv8Xw/g2HGV7n+JwZIHTWdz1RFAfGWTTF086Bc1X/S4Gu0Mz1iKPWP7OdJrGaBZOY9jGXUF6HlIlJhwLhZpEWWKQ4P3hX84z+VudcH55agwDhvfCaiswPLiUKxGt3QAL8UqJSrjVJpL/+oiusAlOnPqb/8CwpZ7sSNHiLnpe+z9A2kZbwJKdkzzAMKGPp3BwMuPgc4SxuFvNVVTKCNl/aQcIfJBqV17JAXUYzd5keaCaK5ruRDTl+BQgB31q7S/92CPqCbebFeW5U6OdRKhNT6/zO7JOeXwnW0mbuuaNEPWKXHf9Ftq5SMYa2edSIbBqYB9gt56Wqn8pQoOGaPpkoTETVQ9lMVb0LF+AXcbHy1/fmARhlWhFGBsWZiTq0xxaGgEEJ1fiDctEw2FZEo0+4D5jYZUZpUYWTCFu2TWjNHbs1G9D0nlIbmBDWWR3DSEb0Vsen4QJsh/riDBl32i76i6DiLdRkggjLfoO7x7x7JaDBl8Npr+L9s3a6RqLwupphD5uAcKh1c9InasQ50VFHcxPr+dXoEXGYtqs0b1ANpfBQG2lRqpN5ZFmzbpYWmRRmohNS8eUyFj07Raz6vDf1J1EgFxqyLcebq8ye3rhIphPuhvugDVL3Dco9Bo+op5zMvui31kN4z5JI=
+      app: sukhiboi-blog
+      run: restart
