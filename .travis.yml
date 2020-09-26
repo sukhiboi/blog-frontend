@@ -5,9 +5,9 @@ os:
   - linux
 jobs:
   - include
-    - stage "Test"
+    - stage: "Test"
       script: npm test
-    - stage "Build"
+    - stage: "Build"
       script: npm run build
 script:
   - npm test
