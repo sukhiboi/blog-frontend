@@ -1,38 +1,34 @@
 #cloning frontend
-git clone https://github.com/sukhiboi/blog-frontend.git 2> /dev/null;
+git clone https://github.com/sukhiboi/blog-frontend.git frontend 1> /dev/null 2> /dev/null;
 
 #creating react build
-cd blog-frontend;
-npm install 2> /dev/null;
-npm test;
+echo "Building frontend";
+cd frontend;
+npm install 1> /dev/null 2> /dev/null;
+npm test 2> /dev/null;
 npm run build 2> /dev/null;
 
 #cloning build to root
 mv build ../build;
-
-#deleting frontend
 cd ..;
-rm -rf blog-frontend;
 
 #cloning backend
-git clone https://github.com/sukhiboi/blog-backend.git 2> /dev/null;
+echo "Building backend";
+git clone https://github.com/sukhiboi/blog-backend.git backend 1> /dev/null 2> /dev/null;
 
-cd blog-backend;
-npm install 2> /dev/null;
+cd backend;
+npm install 1> /dev/null 2> /dev/null;
 npm test;
-echo 'ran tests'
 rm -rf node_modules;
-echo 'delete modules'
 
 #cloning backend to root
-echo 'copying build and server to root'
+echo "Bundling server code and react build"
 cp -R ./* ..;
+cd ..;
 
 #deleting backend
-cd ..;
-ls
-pwd
-rm -rf blog-backend;
-echo 'deleting backend'
-
+echo 'Cleaning';
 rm -rf node_modules;
+rm -rf backend;
+rm -rf frontend;
+
