@@ -28,16 +28,14 @@ git clone https://github.com/sukhiboi/blog-backend.git;
 cd blog-backend;
 npm install;
 npm test;
-ls;
 rm -rf node_modules;
 
 #cloning backend to root
-ls;
-cp -R ./* ..;
+cd ..;
 ls
+cp -R ./blog-backend/* .;
 
 #deleting backend
-cd ..;
 rm -rf blog-backend;
 
 ls
