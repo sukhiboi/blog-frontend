@@ -3,10 +3,10 @@ node_js: lts/*
 os: linux
 jobs:
   include:
+    - stage: test
+      script: npm test
     - stage: Build
       script: npm run build
-script:
-  - npm test
 deploy:
   provider: heroku
   api_key:
