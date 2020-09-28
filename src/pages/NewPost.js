@@ -9,7 +9,7 @@ import './../styles/new-post.css';
 import { useTitle } from '../hooks/useTitle';
 
 const NewPost = props => {
-  useTitle('New Post')
+  useTitle('New Post');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [published, setPublished] = useState(false);

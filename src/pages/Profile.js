@@ -16,10 +16,10 @@ const Profile = props => {
     <div>
       <div className='user-profile'>
         <div className='avatar'>
-          <img src={user.imgURL} alt={user.name} />
+          <img src={user.img_url} alt={user.user_name} />
         </div>
         <div className='user-details'>
-          <div className='user-name'>{user.name}</div>
+          <div className='user-name'>{user.user_name}</div>
           <div className='user-bio'>{user.bio}</div>
           <div>
             Published {posts.length} {posts.length === 1 ? 'post' : 'posts'}{' '}

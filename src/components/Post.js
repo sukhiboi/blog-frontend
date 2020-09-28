@@ -8,7 +8,7 @@ const formatDate = date => {
 };
 
 const Post = props => {
-  const { title, publishedDate, content, name } = props.post;
+  const { title, published_on, content, user_name } = props.post;
   const history = useHistory();
 
   const contentBox = (
@@ -21,17 +21,17 @@ const Post = props => {
     />
   );
 
-  const redirectToProfile = () => history.push(`/profile/${name}`);
+  const redirectToProfile = () => history.push(`/profile/${user_name}`);
 
   return (
     <div className={`post ${props.className}`}>
       <span className='post-title'>{title}</span>
       <span className='post-publish-date'>
-        Published on {formatDate(publishedDate)} by
+        Published on {formatDate(published_on)} by
         {
           <span className='link' onClick={redirectToProfile}>
             {' '}
-            {name}
+            {user_name}
           </span>
         }
       </span>

@@ -33,9 +33,9 @@ const Header = props => {
         <div className='vertical-center'>
           <div className='small-avatar avatar'>
             <img
-              src={details.imgURL}
-              alt={details.name}
-              onClick={() => history.push(`/profile/${details.name}`)}
+              src={details.img_url}
+              alt={details.user_name}
+              onClick={() => history.push(`/profile/${details.user_name}`)}
             />
           </div>
         </div>
