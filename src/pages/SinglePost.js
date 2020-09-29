@@ -43,7 +43,7 @@ const SinglePost = props => {
     <div>
       {isShown ? confirmBox : <></>}
       <div className='static-post'>
-        {post.isMyPost ? deleteButton : <></>}
+        {post.user_id === props.user.user_id ? deleteButton : <></>}
         <Post className='single-post' post={post} static={true} />
         <Link className='link back-to-home-link' to='/'>
           ← Back to Home
