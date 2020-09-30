@@ -23,22 +23,6 @@ body {
   justify-content: center;
 }
 
-.btn {
-  padding: 10px 1rem;
-  border: 1px solid #ccc;
-  background: transparent;
-  border-radius: 4px;
-  font-size: 1rem;
-  outline: none;
-  width: fit-content;
-  align-self: flex-end;
-}
-
-.btn:hover {
-  cursor: pointer;
-  border: 1px solid #000;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
