@@ -8,11 +8,6 @@ body {
   height: 100vh;
 }
 
-.link {
-  text-decoration: none;
-  color: #000;
-}
-
 .back-to-home-link {
   padding-left: 1rem;
 }
@@ -56,24 +51,6 @@ body {
   width: fit-content;
 }
 
-.post-link {
-  display: flex;
-  width: 70%;
-  margin: 10px auto;
-}
-
-.post {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 1rem;
-}
-
-.post:hover {
-  cursor: pointer;
-  border: 1px solid #000;
-}
-
 .single-post {
   border: none;
 }
@@ -99,18 +76,6 @@ body {
 .static-post:hover {
   cursor: default;
   border: none;
-}
-
-.post-title {
-  font-size: 1.6rem;
-  font-weight: 900;
-  display: block;
-  padding-bottom: 10px;
-}
-
-.post-publish-date {
-  font-style: italic;
-  padding-top: 10px;
 }
 
 .post .post-content {

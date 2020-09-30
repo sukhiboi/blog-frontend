@@ -1,42 +1,70 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import TextBox from './TextBox';
+import PostDetail from './PostDetail';
 
-const formatDate = date => {
-  const dateFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
-  return dateFormat.format(new Date(date));
-};
+const PostLayout = styled.div`
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #000;
+  width: 70%;
+  ${props =>
+    props.fullView &&
+    css`
+      width: 100%;
+      border-bottom: none;
+    `}
+  margin: 10px auto;
 
-const Post = props => {
-  const { title, published_on, content, user_name } = props.post;
+  &:hover {
+    cursor: pointer;
+    background: #f5f5f5;
+    ${props =>
+      props.fullView &&
+      css`
+        cursor: default;
+        background: transparent;
+      `}
+  }
+`;
+
+const Title = styled.div`
+  font-size: 1.6rem;
+  font-weight: 900;
+  display: block;
+  padding-bottom: 10px;
+`;
+
+const Content = styled.p`
+  ${props =>
+    props.fullView &&
+    css`
+      padding-top: 20px;
+    `}
+  width: -webkit-fill-available;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  resize: none;
+  white-space: pre-wrap;
+  overflow: hidden;
+  margin: 0;
+`;
+
+const Post = ({ post, fullView }) => {
+  const { title, published_on, content, user_name, id } = post;
   const history = useHistory();
 
-  const contentBox = (
-    <TextBox
-      className='post-content'
-      rows='2'
-      value={content}
-      disabled={true}
-      onChange={() => {}}
-    />
-  );
-
-  const redirectToProfile = () => history.push(`/profile/${user_name}`);
-
   return (
-    <div className={`post ${props.className}`}>
-      <span className='post-title'>{title}</span>
-      <span className='post-publish-date'>
-        Published on {formatDate(published_on)} by
-        {
-          <span className='link' onClick={redirectToProfile}>
-            {' '}
-            {user_name}
-          </span>
-        }
-      </span>
-      {props.static ? <p className='post-content'>{content}</p> : contentBox}
-    </div>
+    <PostLayout fullView={fullView} onClick={() => history.push(`/post/${id}`)}>
+      <Title>{title}</Title>
+      <PostDetail published_on={published_on} user_name={user_name} />
+      <Content fullView={fullView}>{content}</Content>
+    </PostLayout>
   );
 };
 
