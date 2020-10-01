@@ -4,8 +4,48 @@ import Loader from './../components/Loader';
 import WithHeader from './../components/WithHeader';
 import WithAuth from './../components/WithAuth';
 import PostList from '../components/PostList';
-import './../styles/profile.css';
+import styled from 'styled-components';
 import { useTitle } from '../hooks/useTitle';
+
+const ProfileLayout = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #cfcfcf;
+`;
+
+const Avatar = styled.img`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+`;
+
+const UserDetails = styled.div`
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & div {
+    padding-bottom: 10px;
+  }
+`;
+
+const Username = styled.div`
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: capitalize;
+`;
+
+const Bio = styled.div`
+  font-size: 1.2rem;
+  line-height: 1.6;
+`;
 
 const Profile = props => {
   useTitle('Profile');
@@ -14,18 +54,16 @@ const Profile = props => {
   if (!isLoaded) return <Loader />;
   return (
     <div>
-      <div className='user-profile'>
-        <div className='avatar'>
-          <img src={user.img_url} alt={user.user_name} />
-        </div>
-        <div className='user-details'>
-          <div className='user-name'>{user.user_name}</div>
-          <div className='user-bio'>{user.bio}</div>
+      <ProfileLayout>
+        <Avatar src={user.img_url} alt={user.user_name} />
+        <UserDetails>
+          <Username children={user.user_name} />
+          <Bio children={user.bio} />
           <div>
-            Published {posts.length} {posts.length === 1 ? 'post' : 'posts'}{' '}
+            Published {posts.length} {posts.length === 1 ? 'post' : 'posts'}
           </div>
-        </div>
-      </div>
+        </UserDetails>
+      </ProfileLayout>
       <PostList posts={posts} />
     </div>
   );

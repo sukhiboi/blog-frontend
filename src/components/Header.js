@@ -1,7 +1,18 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import { SiteContext } from '../App';
 import Button from './Button';
+
+const Avatar = styled.img`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+`;
 
 const Header = props => {
   const { user } = useContext(SiteContext);
@@ -31,13 +42,11 @@ const Header = props => {
           <Button text='Logout' onClick={logout} />
         </div>
         <div className='vertical-center'>
-          <div className='small-avatar avatar'>
-            <img
-              src={details.img_url}
-              alt={details.user_name}
-              onClick={() => history.push(`/profile/${details.user_name}`)}
-            />
-          </div>
+          <Avatar
+            src={details.img_url}
+            alt={details.user_name}
+            onClick={() => history.push(`/profile/${details.user_name}`)}
+          />
         </div>
       </div>
     </div>

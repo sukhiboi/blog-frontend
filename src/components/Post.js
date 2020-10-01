@@ -5,7 +5,7 @@ import PostDetail from './PostDetail';
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
-  padding: 1rem 0;
+  padding: 1rem;
   text-decoration: none;
   color: #000;
   width: 70%;
