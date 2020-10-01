@@ -21,7 +21,7 @@ jobs:
           repository: sukhiboi/blog-frontend
           path: frontend
       - name: Building frontend
-        env: 
+        env:
           REACT_APP_LOGIN_REDIRECT: /api/auth/login
         run: |
           cd frontend
@@ -30,7 +30,7 @@ jobs:
           mv build ../backend/
           cd ..
           rm -rf frontend
-      - name: Deploy to Heroku
+      - name: Deploying to Heroku
         run: |
           cd backend
           git config --global user.email "41sukhdevaingh@gmail.com"
