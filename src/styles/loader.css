@@ -1,9 +1,0 @@
-.loader {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
-  font-size: 2rem;
-  font-weight: 900;
-}
