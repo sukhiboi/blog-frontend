@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { SiteContext } from '../App';
 import Button from './Button';
@@ -14,10 +14,41 @@ const Avatar = styled.img`
   overflow: hidden;
 `;
 
+const HeaderLayout = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+`;
+
+const UserActions = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+
+  & a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    text-decoration: none;
+  }
+`;
+
+const AppTitle = styled(Link)`
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const Header = props => {
   const { user } = useContext(SiteContext);
   const { details, setUser } = user;
-  const history = useHistory();
 
   const logout = () => {
     fetch('/api/user/logout')
@@ -26,30 +57,20 @@ const Header = props => {
   };
 
   return (
-    <div className='header'>
-      <div className='vertical-center'>
-        <Link className='link' to='/'>
-          <span className='app-title'>Blog</span>
+    <HeaderLayout>
+      <AppTitle to='/' children='Blog' />
+      <UserActions>
+        <Link to='/new-post'>
+          <Button text='New Post' />
         </Link>
-      </div>
-      <div className='user-actions'>
-        <div className='vertical-center'>
-          <Link className='link' to='/new-post'>
-            <Button text='New Post' />
-          </Link>
-        </div>
-        <div className='vertical-center'>
+        <Link to='#'>
           <Button text='Logout' onClick={logout} />
-        </div>
-        <div className='vertical-center'>
-          <Avatar
-            src={details.img_url}
-            alt={details.user_name}
-            onClick={() => history.push(`/profile/${details.user_name}`)}
-          />
-        </div>
-      </div>
-    </div>
+        </Link>
+        <Link to={`/profile/${details.user_name}`}>
+          <Avatar src={details.img_url} alt={details.user_name} />
+        </Link>
+      </UserActions>
+    </HeaderLayout>
   );
 };
 
