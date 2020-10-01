@@ -4,18 +4,8 @@ body {
   padding-bottom: 1rem;
 }
 
-.full-height {
-  height: 100vh;
-}
-
 .back-to-home-link {
   padding-left: 1rem;
-}
-
-.login-btn {
-  display: block;
-  margin: 1rem auto;
-  width: fit-content;
 }
 
 .single-post {
