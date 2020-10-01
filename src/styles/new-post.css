@@ -11,20 +11,6 @@
   }
 }
 
-.input {
-  font-family: sans-serif;
-  border: 1px solid #ccc;
-  outline: none;
-  padding: 10px;
-  resize: none;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-.input:focus {
-  border: 1px solid #000;
-}
-
 .title {
   font-size: 1.6rem;
   font-weight: 900;
