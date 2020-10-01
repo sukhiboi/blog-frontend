@@ -23,7 +23,7 @@ const PostLayout = styled.div`
 
   &:hover {
     cursor: pointer;
-    background: #f5f5f5;
+    background: #fbfbfb;
     ${props =>
       props.fullView &&
       css`

@@ -30,8 +30,8 @@ const App = props => {
             children={<Home user={user} postsStore={postsStore} />}
           />
           <Route path='/post/:id' children={<SinglePost user={user} />} />
-          <Route exact path='/new-post' children={<NewPost />} />
-          <Route path='/profile/:username' children={<Profile />} />
+          <Route exact path='/new-post' children={<NewPost user={user} />} />
+          <Route path='/profile/:username' children={<Profile user={user} />} />
           <Route exact path='/login' children={<Login />} />
           <Route children={<p>404</p>} />
         </Switch>
