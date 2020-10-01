@@ -22,7 +22,6 @@ body {
   border: none;
 }
 
-
 .single-post:hover {
   border: none;
   cursor: default;
@@ -43,25 +42,6 @@ body {
 .static-post:hover {
   cursor: default;
   border: none;
-}
-
-.post .post-content {
-  padding-top: 20px;
-  width: -webkit-fill-available;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-family: sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  resize: none;
-  white-space: pre-wrap;
-  overflow: hidden;
-  padding-left: 0;
-}
-
-.post .post-content:hover {
-  cursor: pointer;
 }
 
 .icon {
