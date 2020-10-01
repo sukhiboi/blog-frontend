@@ -15,7 +15,11 @@ const PostLayout = styled.div`
       width: 100%;
       border-bottom: none;
     `}
-  margin: 10px auto;
+
+  &:first-child {
+    margin: 10px auto 0;
+  }
+  margin: 0 auto;
 
   &:hover {
     cursor: pointer;

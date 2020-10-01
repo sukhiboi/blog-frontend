@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { usePost } from '../hooks/usePost';
 import { BiTrash } from 'react-icons/bi';
@@ -10,9 +11,41 @@ import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
 import { useTitle } from '../hooks/useTitle';
 
+const SinglePostLayout = styled.div`
+  border: none;
+  width: 70%;
+  margin: 10px auto;
+  position: relative;
+`;
+
+const DeleteButton = styled(BiTrash)`
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  padding: 5px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+`;
+
+const BackToHomeLink = styled(Link)`
+  padding-left: 1rem;
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const SinglePost = props => {
   const [post, error] = usePost();
   useTitle(post.title);
+
   const [isShown, setIsShown] = useState(false);
   const toggleConfirm = () => setIsShown(isShown => !isShown);
 
@@ -25,30 +58,20 @@ const SinglePost = props => {
   if (error) return <Redirect to='/login' />;
   if (!post.isLoaded) return <Loader />;
 
-  const deleteButton = (
-    <BiTrash
-      className='post-action-icon btn'
-      onClick={toggleConfirm}
-      size='1.2rem'
-    />
-  );
+  const deleteButton = <DeleteButton onClick={toggleConfirm} size='1.2rem' />;
+  const confirmText = 'Are you sure you want to delete this post?';
   const confirmBox = (
-    <Confirm
-      onNo={toggleConfirm}
-      onYes={deletePost}
-      text='Are you sure you want to delete this post?'
-    />
+    <Confirm no={toggleConfirm} yes={deletePost} text={confirmText} />
   );
+  
   return (
     <div>
       {isShown ? confirmBox : <></>}
-      <div className='static-post'>
+      <SinglePostLayout>
         {post.user_id === props.user.user_id ? deleteButton : <></>}
         <Post post={post} fullView />
-        <Link className='link back-to-home-link' to='/'>
-          ← Back to Home
-        </Link>
-      </div>
+        <BackToHomeLink to='/' children='← Back to Home' />
+      </SinglePostLayout>
     </div>
   );
 };

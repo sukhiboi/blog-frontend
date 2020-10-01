@@ -35,8 +35,8 @@ const Confirm = props => {
     <ConfirmLayout>
       <Message children={props.text} />
       <ActionButtons>
-        <Button text='Yes' onClick={props.onYes} />
-        <Button text='No' onClick={props.onNo} />
+        <Button text='Yes' onClick={props.yes} />
+        <Button text='No' onClick={props.no} />
       </ActionButtons>
     </ConfirmLayout>
   );
