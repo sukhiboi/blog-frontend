@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SiteContext } from '../App';
 import Button from './Button';
 
 const Avatar = styled.img`
@@ -47,13 +46,10 @@ const AppTitle = styled(Link)`
 `;
 
 const Header = props => {
-  const { user } = useContext(SiteContext);
-  const { details, setUser } = user;
-
   const logout = () => {
     fetch('/api/user/logout')
       .then(res => res.json())
-      .then(setUser);
+      .then(props.user.setUser);
   };
 
   return (
@@ -66,8 +62,8 @@ const Header = props => {
         <Link to='#'>
           <Button text='Logout' onClick={logout} />
         </Link>
-        <Link to={`/profile/${details.user_name}`}>
-          <Avatar src={details.img_url} alt={details.user_name} />
+        <Link to={`/profile/${props.user.user_name}`}>
+          <Avatar src={props.user.img_url} alt={props.user.user_name} />
         </Link>
       </UserActions>
     </HeaderLayout>

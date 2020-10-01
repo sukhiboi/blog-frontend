@@ -12,5 +12,5 @@ export const useUser = () => {
       .catch(() => setLoaded(true));
   }, []);
 
-  return [user, loaded, setUser];
+  return { ...user, setUser, loaded };
 };

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const LoaderLayout = styled.div`
   display: flex;
+  font-family: sans-serif;
   flex-direction: column;
   justify-content: center;
   text-align: center;

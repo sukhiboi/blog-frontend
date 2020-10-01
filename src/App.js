@@ -9,7 +9,6 @@ import NewPost from './pages/NewPost';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-import './styles/blog.css';
 
 const SiteLayout = styled.div`
   font-family: sans-serif;
@@ -17,36 +16,26 @@ const SiteLayout = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const SiteContext = React.createContext();
-
 const App = props => {
-  const [posts, setPosts] = usePostsStore();
-  const [user, isLoaded, setUser] = useUser();
-
-  const contextValue = {
-    user: { details: user, setUser },
-    postsStore: { posts, setPosts },
-  };
-
-  if (!isLoaded) return <Loader />;
-
+  const postsStore = usePostsStore();
+  const user = useUser();
+  if (!user.loaded) return <Loader />;
   return (
     <SiteLayout>
-      <SiteContext.Provider value={contextValue}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/' children={<Home user={user} />} />
-            <Route path='/post/:id' children={<SinglePost user={user} />} />
-            <Route exact path='/new-post' children={<NewPost user={user} />} />
-            <Route
-              path='/profile/:username'
-              children={<Profile user={user} />}
-            />
-            <Route exact path='/login' children={<Login />} />
-            <Route children={<p>404</p>} />
-          </Switch>
-        </BrowserRouter>
-      </SiteContext.Provider>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path='/'
+            children={<Home user={user} postsStore={postsStore} />}
+          />
+          <Route path='/post/:id' children={<SinglePost user={user} />} />
+          <Route exact path='/new-post' children={<NewPost />} />
+          <Route path='/profile/:username' children={<Profile />} />
+          <Route exact path='/login' children={<Login />} />
+          <Route children={<p>404</p>} />
+        </Switch>
+      </BrowserRouter>
     </SiteLayout>
   );
 };
