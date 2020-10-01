@@ -66,7 +66,11 @@ const Post = ({ post, fullView }) => {
   return (
     <PostLayout fullView={fullView} onClick={() => history.push(`/post/${id}`)}>
       <Title>{title}</Title>
-      <PostDetail published_on={published_on} user_name={user_name} />
+      <PostDetail
+        fullView={fullView}
+        published_on={published_on}
+        user_name={user_name}
+      />
       <Content fullView={fullView}>{content}</Content>
     </PostLayout>
   );
