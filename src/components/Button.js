@@ -17,8 +17,8 @@ const SimpleButton = styled.button`
   }
 `;
 
-const Button = props => {
-  return <SimpleButton onClick={props.onClick}>{props.text}</SimpleButton>;
-};
+const Button = props => (
+  <SimpleButton {...props} onClick={props.onClick} children={props.text} />
+);
 
 export default Button;
