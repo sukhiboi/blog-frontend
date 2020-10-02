@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import PostDetail from './PostDetail';
 
 const PostLayout = styled.div`
@@ -36,7 +37,7 @@ const Title = styled.div`
   padding-bottom: 10px;
 `;
 
-const Content = styled.p`
+const Content = styled(ReactMarkdown)`
   ${props =>
     props.fullView &&
     css`
@@ -47,7 +48,6 @@ const Content = styled.p`
   border: none;
   outline: none;
   font-family: sans-serif;
-  font-size: 1.2rem;
   line-height: 1.8;
   resize: none;
   white-space: pre-wrap;
@@ -67,7 +67,7 @@ const Post = ({ post, fullView }) => {
         published_on={published_on}
         user_name={user_name}
       />
-      <Content fullView={fullView}>{content}</Content>
+      <Content fullView={fullView} source={content} />
     </PostLayout>
   );
 };
