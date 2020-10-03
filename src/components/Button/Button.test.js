@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
+import Button from './Button';
 const { assert } = require('chai');
 const { fake } = require('sinon');
-import Button from './Button';
 
 let container = null;
 beforeEach(() => {
