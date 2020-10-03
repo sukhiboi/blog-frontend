@@ -5,7 +5,7 @@ import { usePost } from '../hooks/usePost';
 import { BiTrash } from 'react-icons/bi';
 import Post from './../components/Post';
 import Confirm from '../components/Confirm';
-import Loader from './../components/Loader';
+import Loader from './../components/Loader/Loader';
 import WithHeader from './../components/WithHeader';
 import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
