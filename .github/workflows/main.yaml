@@ -26,6 +26,7 @@ jobs:
         run: |
           cd frontend
           npm install
+          npm test
           npm run build
           mv build ../backend/
           cd ..
