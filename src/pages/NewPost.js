@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from './../components/Button';
+import Button from './../components/Button/Button';
 import TextBox from './../components/TextBox';
 import WithHeader from './../components/WithHeader';
 import WithAuth from './../components/WithAuth';

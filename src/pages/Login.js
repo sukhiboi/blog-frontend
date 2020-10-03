@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTitle } from '../hooks/useTitle';
-import Button from './../components/Button';
+import Button from './../components/Button/Button';
 import styled from 'styled-components';
 
 const LoginPageLayout = styled.div`
