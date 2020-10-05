@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from './Button/Button';
+import Button from '../Button/Button';
 
 const Avatar = styled.img`
   display: flex;
@@ -53,7 +53,7 @@ const Header = props => {
   };
 
   return (
-    <HeaderLayout>
+    <HeaderLayout {...props}>
       <AppTitle to='/' children='Blog' />
       <UserActions>
         <Link to='/new-post'>
