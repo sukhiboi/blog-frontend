@@ -57,7 +57,10 @@ const SinglePost = props => {
 
   const PostActionGroup = (
     <Group>
-      <EditButton onClick={() => console.log('edit post')} size='1.2rem' />
+      <EditButton
+        onClick={() => history.push(`/edit-post/${post.id}`)}
+        size='1.2rem'
+      />
       <DeleteButton onClick={toggleConfirm} size='1.2rem' />
     </Group>
   );

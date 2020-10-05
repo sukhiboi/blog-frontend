@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const TextAreaLayout = styled.textarea`
@@ -16,7 +16,7 @@ const TextAreaLayout = styled.textarea`
 `;
 
 const TextBox = props => {
-  const [input, setInput] = useState(props.value || '');
+  const [input, setInput] = useState(props.value);
 
   return (
     <TextAreaLayout
@@ -28,6 +28,10 @@ const TextBox = props => {
       }}
     />
   );
+};
+
+TextBox.defaultProps = {
+  value: '',
 };
 
 export default TextBox;

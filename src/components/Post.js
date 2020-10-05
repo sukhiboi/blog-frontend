@@ -53,6 +53,10 @@ const Content = styled(ReactMarkdown)`
   white-space: pre-wrap;
   overflow: hidden;
   margin: 0;
+
+  & * {
+    margin: 0;
+  }
 `;
 
 const Post = ({ post, fullView }) => {
