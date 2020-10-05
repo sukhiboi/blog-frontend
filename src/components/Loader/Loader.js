@@ -13,7 +13,7 @@ const LoaderLayout = styled.div`
 `;
 
 const Loader = props => {
-  return <LoaderLayout children='Loading...' />;
+  return <LoaderLayout {...props}>Loading...</LoaderLayout>;
 };
 
 export default Loader;

@@ -1,26 +1,14 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
 import Loader from './Loader';
+import { render, cleanup } from '@testing-library/react';
 const { assert } = require('chai');
 
-let container = null;
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+afterEach(cleanup);
 
 describe('Loader', () => {
   it('should render the loader', () => {
-    act(() => {
-      render(<Loader />, container);
-    });
-    assert.strictEqual(container.textContent, 'Loading...');
+    const { getByTestId } = render(<Loader data-testid='loader-test' />);
+    const loader = getByTestId('loader-test');
+    assert.strictEqual(loader.textContent, 'Loading...');
   });
 });
