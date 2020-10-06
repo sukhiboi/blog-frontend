@@ -57,6 +57,10 @@ const Content = styled(ReactMarkdown)`
   & * {
     margin: 0;
   }
+
+  & p {
+    padding-bottom: 10px;
+  }
 `;
 
 const Post = ({ post, fullView }) => {
