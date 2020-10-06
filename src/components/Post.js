@@ -60,6 +60,7 @@ const Content = styled(ReactMarkdown)`
 
   & p {
     padding-bottom: 10px;
+    font-size: 1.2rem;
   }
 `;
 
