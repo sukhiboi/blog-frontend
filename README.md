@@ -23,10 +23,12 @@ Knowledge House comes with a list of features that helps you to easily share you
 
 ## TechStack
 
-Following are some of the libraries and modules used to build this app
-
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Styled Components](https://styled-components.com/)
+- [Postgres](https://www.postgresql.org/)
+- [Redis](https://redis.io/)
+- [Express](https://expressjs.com/)
+- [knex](http://knexjs.org/)
   
