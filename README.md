@@ -1,4 +1,4 @@
-# Blog ![React Deployment](https://github.com/sukhiboi/blog-frontend/workflows/build/badge.svg)
+# Knowledge House ![React Deployment](https://github.com/sukhiboi/blog-frontend/workflows/build/badge.svg)
 
 This repository contains the source code of app's frontend.
 
@@ -8,11 +8,11 @@ Also you can view the app [here](https://knowledge-house.herokuapp.com/)
 
 ## About
 
-Blog is a simple website where you can write a blog post and share it with the community.
+Knowledge House is a simple website where you can write a blog post and share it with the community.
 
 ## Features
 
-Blog comes with a list of features that helps you to easily share your knowledge with the community.abs
+Knowledge House comes with a list of features that helps you to easily share your knowledge with the community
 
 - Let's you create a post and publish it
 - Let's you edit a published post

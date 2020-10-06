@@ -1,5 +1,5 @@
 {
   "title": "Knowledge House",
-  "description": "A simple website where step people can share knowledge",
-  "tags": ["react", "blog", "step7"]
+  "description": "Knowledge House is a simple website where you can write a blog post and share it with the community.",
+  "tags": ["react", "blog", "blogging"]
 }
