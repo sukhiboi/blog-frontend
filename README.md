@@ -6,13 +6,9 @@ You can find the backend of this app at [Blog-Backend](https://github.com/sukhib
 
 Also you can view the app [here](https://knowledge-house.herokuapp.com/)
 
----
-
 ## About
 
 Blog is a simple website where you can write a blog post and share it with the community.
-
----
 
 ## Features
 
@@ -24,8 +20,6 @@ Blog comes with a list of features that helps you to easily share your knowledge
 - You can view any member's profile
 - Let's you read other's post
 - You can simply login with Github
-
----
 
 ## TechStack
 
