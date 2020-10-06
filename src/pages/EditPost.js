@@ -36,7 +36,7 @@ const DisabledButton = styled(Button)`
 `;
 
 const NewPost = props => {
-  useTitle('New Post');
+  useTitle('Edit Post');
   const history = useHistory();
   const [post, error] = usePost();
   const [title, setTitle] = useState('');
