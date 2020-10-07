@@ -29,7 +29,7 @@ const Home = props => {
   return (
     <HomeLayout>
       <PostList posts={posts} />
-      <SearchBar onChange={setSearch} />
+      <SearchBar placeholder='Search by Title' onChange={setSearch} />
     </HomeLayout>
   );
 };

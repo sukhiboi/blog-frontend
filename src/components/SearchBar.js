@@ -36,8 +36,8 @@ const SearchBar = props => {
     <SearchLayout>
       <SearchIcon size='1.5rem' />
       <SearchInput
+        {...props}
         value={value}
-        placeholder='Search'
         onChange={({ target }) => {
           setValue(target.value);
           props.onChange(target.value);
