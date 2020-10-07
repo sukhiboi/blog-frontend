@@ -2,7 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { Prism } from 'react-syntax-highlighter';
 import PostDetail from './PostDetail';
+
+const CodeBlock = ({ language, value }) => (
+  <Prism language={language}>{value}</Prism>
+);
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
@@ -76,7 +81,11 @@ const Post = ({ post, fullView }) => {
         published_on={published_on}
         user_name={user_name}
       />
-      <Content fullView={fullView} source={content} />
+      <Content
+        fullView={fullView}
+        source={content}
+        renderers={{ code: CodeBlock }}
+      />
     </PostLayout>
   );
 };
