@@ -54,7 +54,7 @@ const Header = props => {
 
   return (
     <HeaderLayout {...props}>
-      <AppTitle to='/' children='Blog' />
+      <AppTitle to='/' children='Knowledge House' />
       <UserActions>
         <Link to='/new-post'>
           <Button text='New Post' />
