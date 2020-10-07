@@ -4,21 +4,34 @@ import PostList from './../components/PostList';
 import WithHeader from './../components/WithHeader';
 import WithAuth from './../components/WithAuth';
 import { useTitle } from '../hooks/useTitle';
+import SearchBar from '../components/SearchBar';
+import styled from 'styled-components';
+import { postReq } from './../request';
+
+const HomeLayout = styled.div`
+  display: flex;
+`;
 
 const Home = props => {
   useTitle('Home');
   const [posts, setPosts] = props.postsStore;
+  const [search, setSearch] = useState('');
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('/api/post/all')
+    postReq('/api/post/all', { search })
       .then(res => res.json())
       .then(setPosts)
       .catch(() => setError(true));
-  }, [setPosts]);
+  }, [setPosts, search]);
 
   if (error) return <Redirect to='/login' />;
-  return <PostList posts={posts} />;
+  return (
+    <HomeLayout>
+      <PostList posts={posts} />
+      <SearchBar onChange={setSearch} />
+    </HomeLayout>
+  );
 };
 
 export default WithAuth(WithHeader(Home));

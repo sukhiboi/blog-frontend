@@ -6,10 +6,10 @@ import PostDetail from './PostDetail';
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
-  padding: 1rem;
+  padding: 10px;
   text-decoration: none;
   color: #000;
-  width: 70%;
+  width: 80%;
   ${props =>
     props.fullView &&
     css`
@@ -32,9 +32,9 @@ const PostLayout = styled.div`
 
 const Title = styled.div`
   font-size: 1.6rem;
-  font-weight: 900;
+  font-weight: 500;
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 4px;
 `;
 
 const Content = styled(ReactMarkdown)`

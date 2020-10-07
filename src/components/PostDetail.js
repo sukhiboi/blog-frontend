@@ -8,7 +8,8 @@ const formatDate = date => {
 
 const Italic = styled.span`
   font-style: italic;
-  padding-top: 10px;
+  /* padding-top: 0px; */
+  font-size: 0.8rem;
 `;
 
 const Username = styled.a`
