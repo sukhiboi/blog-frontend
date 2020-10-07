@@ -21,7 +21,7 @@ describe('Header', () => {
       </Router>
     );
     const header = getByTestId('header-test');
-    assert.ok(screen.getByText(/Blog/));
+    assert.ok(screen.getByText(/Knowledge House/));
     assert.ok(screen.getByText(/New Post/));
     assert.ok(screen.getByText(/Logout/));
     const [avatar] = header.getElementsByTagName('img');
