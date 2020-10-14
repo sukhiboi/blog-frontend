@@ -36,7 +36,14 @@ const PostLayout = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 1.6rem;
+  ${props =>
+    props.fullView
+      ? css`
+          font-size: 2rem;
+        `
+      : css`
+          font-size: 1.6rem;
+        `}
   font-weight: 500;
   display: block;
   padding-bottom: 4px;
@@ -75,7 +82,7 @@ const Post = ({ post, fullView }) => {
 
   return (
     <PostLayout fullView={fullView} onClick={() => history.push(`/post/${id}`)}>
-      <Title>{title}</Title>
+      <Title fullView={fullView}>{title}</Title>
       <PostDetail
         fullView={fullView}
         published_on={published_on}
