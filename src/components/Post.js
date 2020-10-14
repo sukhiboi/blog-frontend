@@ -11,10 +11,10 @@ const CodeBlock = ({ language, value }) => (
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
-  padding: 10px;
+  padding-bottom: 10px;
   text-decoration: none;
   color: #000;
-  width: 80%;
+  width: 100%;
   ${props =>
     props.fullView &&
     css`

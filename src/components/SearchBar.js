@@ -10,6 +10,7 @@ const SearchLayout = styled.div`
   height: fit-content;
   overflow: hidden;
   margin-top: 1rem;
+  margin-left: 2rem;
 
   &:focus-within {
     border: 1px solid #000;

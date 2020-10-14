@@ -3,7 +3,7 @@ import Post from './Post';
 import styled from 'styled-components';
 
 const PostListLayout = styled.div`
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
 `;
 

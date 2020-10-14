@@ -10,6 +10,8 @@ import { postReq } from './../request';
 
 const HomeLayout = styled.div`
   display: flex;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const Home = props => {

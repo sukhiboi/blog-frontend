@@ -10,6 +10,9 @@ import { useTitle } from '../hooks/useTitle';
 const ProfileLayout = styled.div`
   width: 70%;
   margin: 0 auto;
+`;
+
+const ProfileDetails = styled.div`
   display: flex;
   padding: 1rem;
   border-bottom: 1px solid #cfcfcf;
@@ -53,8 +56,8 @@ const Profile = props => {
 
   if (!isLoaded) return <Loader />;
   return (
-    <div>
-      <ProfileLayout>
+    <ProfileLayout>
+      <ProfileDetails>
         <Avatar src={user.img_url} alt={user.user_name} />
         <UserDetails>
           <Username children={user.user_name} />
@@ -63,9 +66,9 @@ const Profile = props => {
             Published {posts.length} {posts.length === 1 ? 'post' : 'posts'}
           </div>
         </UserDetails>
-      </ProfileLayout>
+      </ProfileDetails>
       <PostList posts={posts} />
-    </div>
+    </ProfileLayout>
   );
 };
 
