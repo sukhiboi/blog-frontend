@@ -11,7 +11,7 @@ const CodeBlock = ({ language, value }) => (
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  padding: 10px 0;
   text-decoration: none;
   color: #000;
   width: 100%;

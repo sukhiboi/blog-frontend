@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const PostListLayout = styled.div`
   width: 100%;
-  margin-top: 10px;
 `;
 
 const PostList = props => {
