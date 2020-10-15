@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const formatDate = date => {
@@ -8,16 +9,18 @@ const formatDate = date => {
 
 const Italic = styled.span`
   font-style: italic;
-  /* padding-top: 0px; */
   font-size: 0.8rem;
+
+  & > a {
+    ${props =>
+      !props.fullView &&
+      css`
+        pointer-events: none;
+      `}
+  }
 `;
 
-const Username = styled.a`
-  ${props =>
-    !props.fullView &&
-    css`
-      pointer-events: none;
-    `}
+const Username = styled(Link)`
   text-decoration: none;
   color: #000;
 
@@ -29,11 +32,15 @@ const Username = styled.a`
 const PostDetail = props => {
   const published_on = formatDate(props.published_on);
   return (
-    <Italic>
+    <Italic fullView={props.fullView}>
       Published On {published_on} by{' '}
-      <Username fullView={props.fullView} href={`/profile/${props.user_name}`}>
-        {props.user_name}
-      </Username>
+      {props.fullView ? (
+        <Username to={`/profile/${props.user_name}`}>
+          {props.user_name}
+        </Username>
+      ) : (
+        props.user_name
+      )}
     </Italic>
   );
 };

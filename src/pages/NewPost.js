@@ -44,7 +44,7 @@ const NewPost = props => {
     setPublishing(true);
     postReq('/api/post/add-new-post', { title, content })
       .then(() => history.push('/'))
-      .catch(() => history.push('/login'));
+      .catch(() => history.push('/')); //need to handle the error
   };
 
   const PublishButton = <Button text='Publish' onClick={publishPost} />;

@@ -2,7 +2,6 @@ import React from 'react';
 import { useProfile } from './../hooks/useProfile';
 import Loader from './../components/Loader/Loader';
 import WithHeader from './../components/WithHeader';
-import WithAuth from './../components/WithAuth';
 import PostList from '../components/PostList';
 import styled from 'styled-components';
 import { useTitle } from '../hooks/useTitle';
@@ -72,4 +71,4 @@ const Profile = props => {
   );
 };
 
-export default WithAuth(WithHeader(Profile));
+export default WithHeader(Profile);

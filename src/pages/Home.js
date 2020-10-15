@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PostList from './../components/PostList';
 import WithHeader from './../components/WithHeader';
-import WithAuth from './../components/WithAuth';
 import { useTitle } from '../hooks/useTitle';
 import SearchBar from '../components/SearchBar';
 import styled from 'styled-components';
@@ -27,7 +26,7 @@ const Home = props => {
       .catch(() => setError(true));
   }, [setPosts, search]);
 
-  if (error) return <Redirect to='/login' />;
+  if (error) return <Redirect to='/' />; // need to handle the error
   return (
     <HomeLayout>
       <PostList posts={posts} />
@@ -36,4 +35,4 @@ const Home = props => {
   );
 };
 
-export default WithAuth(WithHeader(Home));
+export default WithHeader(Home);

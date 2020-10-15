@@ -48,7 +48,7 @@ const NewPost = props => {
     setTitle(post.title);
   }, [post]);
 
-  if (error) return <Redirect to='/login' />;
+  if (error) return <Redirect to='/' />;
   if (!post.isLoaded) return <Loader />;
 
   const updatePost = () => {
@@ -58,7 +58,7 @@ const NewPost = props => {
       id: post.id,
     })
       .then(() => history.push(`/post/${post.id}`))
-      .catch(() => history.push('/login'));
+      .catch(() => history.push('/')); //need to fix this because there is no login page
   };
 
   const UpdateButton = <Button text='Update' onClick={updatePost} />;

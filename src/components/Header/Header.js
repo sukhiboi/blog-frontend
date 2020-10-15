@@ -52,20 +52,32 @@ const Header = props => {
       .then(props.user.setUser);
   };
 
+  const userActions = (
+    <UserActions>
+      <Link to='/new-post'>
+        <Button text='New Post' />
+      </Link>
+      <Link to='#'>
+        <Button text='Logout' onClick={logout} />
+      </Link>
+      <Link to={`/profile/${props.user.user_name}`}>
+        <Avatar src={props.user.img_url} alt={props.user.user_name} />
+      </Link>
+    </UserActions>
+  );
+
+  const loginButton = (
+    <UserActions>
+      <a href={process.env.REACT_APP_LOGIN_REDIRECT}>
+        <Button text='Login' />
+      </a>
+    </UserActions>
+  );
+
   return (
     <HeaderLayout {...props}>
       <AppTitle to='/' children='Knowledge House' />
-      <UserActions>
-        <Link to='/new-post'>
-          <Button text='New Post' />
-        </Link>
-        <Link to='#'>
-          <Button text='Logout' onClick={logout} />
-        </Link>
-        <Link to={`/profile/${props.user.user_name}`}>
-          <Avatar src={props.user.img_url} alt={props.user.user_name} />
-        </Link>
-      </UserActions>
+      {props.user.isLoggedIn ? userActions : loginButton}
     </HeaderLayout>
   );
 };

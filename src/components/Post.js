@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Prism } from 'react-syntax-highlighter';
 import PostDetail from './PostDetail';
@@ -11,7 +10,7 @@ const CodeBlock = ({ language, value }) => (
 
 const PostLayout = styled.div`
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  padding: 10px;
   text-decoration: none;
   color: #000;
   width: 100%;
@@ -77,11 +76,10 @@ const Content = styled(ReactMarkdown)`
 `;
 
 const Post = ({ post, fullView }) => {
-  const { title, published_on, content, user_name, id } = post;
-  const history = useHistory();
+  const { title, published_on, content, user_name } = post;
 
   return (
-    <PostLayout fullView={fullView} onClick={() => history.push(`/post/${id}`)}>
+    <PostLayout fullView={fullView}>
       <Title fullView={fullView}>{title}</Title>
       <PostDetail
         fullView={fullView}

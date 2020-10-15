@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { usePost } from '../hooks/usePost';
-import { BiTrash } from 'react-icons/bi';
+import { BiTrash, BiArrowBack } from 'react-icons/bi';
 import { FiEdit2 } from 'react-icons/fi';
 import Post from './../components/Post';
 import Confirm from '../components/Confirm';
 import Loader from './../components/Loader/Loader';
 import SinglePostIcon from './../components/SinglePostIcon';
 import WithHeader from './../components/WithHeader';
-import WithAuth from './../components/WithAuth';
 import { postReq } from './../request';
 import { useTitle } from '../hooks/useTitle';
 
@@ -26,13 +25,20 @@ const SinglePostLayout = styled.div`
   position: relative;
 `;
 
-const BackToHomeLink = styled(Link)`
-  padding-left: 1rem;
-  color: #000;
-  text-decoration: none;
+const BackToHome = styled.div`
+  display: flex;
 
-  &:hover {
-    text-decoration: underline;
+  & > a {
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -52,7 +58,7 @@ const SinglePost = props => {
     postReq('/api/post/delete-post', { id }).then(() => history.push('/'));
   };
 
-  if (error) return <Redirect to='/login' />;
+  if (error) return <Redirect to='/' />; //need to handle the error
   if (!post.isLoaded) return <Loader />;
 
   const PostActionGroup = (
@@ -76,10 +82,13 @@ const SinglePost = props => {
       <SinglePostLayout>
         {post.user_id === props.user.user_id ? PostActionGroup : <></>}
         <Post post={post} fullView />
-        <BackToHomeLink to='/' children='← Back to Home' />
+        <BackToHome>
+          <BiArrowBack size='1.2rem' />
+          <Link to='/' children='Back to Home' />
+        </BackToHome>
       </SinglePostLayout>
     </div>
   );
 };
 
-export default WithAuth(WithHeader(SinglePost));
+export default WithHeader(SinglePost);
