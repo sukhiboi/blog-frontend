@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { useUser } from './hooks/useUser';
 import { usePostsStore } from './hooks/usePostsStore';
 import Loader from './components/Loader/Loader';
@@ -16,13 +18,21 @@ const SiteLayout = styled.div`
   padding-bottom: 1rem;
 `;
 
+const history = createBrowserHistory();
+
+// Initialize google analytics page view tracking
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
+
 const App = props => {
   const postsStore = usePostsStore();
   const user = useUser();
   if (!user.loaded) return <Loader />;
   return (
     <SiteLayout>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <Switch>
           <Route
             exact
